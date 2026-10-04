@@ -51,7 +51,7 @@ const sectionInput = z.object({
   neighbors: z.array(z.string()).max(20).optional(),
 });
 
-function describeConfig(c: Record<string, any>) {
+function describeConfig(c: any) {
   const lines: string[] = [];
   if (c.layout) lines.push(`Disposition: ${c.layout}`);
   if (c.background) lines.push(`Arrière-plan: ${c.background}`);

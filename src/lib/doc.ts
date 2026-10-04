@@ -27,7 +27,7 @@ const DEFAULT_PALETTE: Record<string, string> = {
 };
 
 export function buildDocument(body: string, design: Design | null | undefined, opts: { title?: string; frameId?: string } = {}) {
-  const p = { ...DEFAULT_PALETTE, ...(design?.palette ?? {}) };
+  const p: any = { ...DEFAULT_PALETTE, ...(design?.palette ?? {}) };
   const heading = design?.fonts?.heading || "Bricolage Grotesque";
   const bodyFont = design?.fonts?.body || "Instrument Sans";
   const fontsUrl = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(heading)}:wght@400;600;700;800&family=${encodeURIComponent(bodyFont)}:wght@400;500;600&display=swap`;

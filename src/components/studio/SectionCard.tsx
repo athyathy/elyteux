@@ -134,7 +134,7 @@ export function SectionCard({
             <span
               key={s.id}
               className="absolute grid h-5 min-w-5 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink px-1 text-[10px] font-bold text-primary-foreground"
-              style={{ left: `${s.points[0][0] * 100}%`, top: `${s.points[0][1] * 100}%` }}
+              style={{ left: `${(s.points[0]?.[0] ?? 0) * 100}%`, top: `${(s.points[0]?.[1] ?? 0) * 100}%` }}
             >
               D{i + 1}
             </span>
