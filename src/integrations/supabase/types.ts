@@ -14,7 +14,107 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      projects: {
+        Row: {
+          brief: string
+          created_at: string
+          design: Json
+          id: string
+          name: string
+          page_html: string | null
+          page_x: number
+          page_y: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          brief?: string
+          created_at?: string
+          design?: Json
+          id?: string
+          name?: string
+          page_html?: string | null
+          page_x?: number
+          page_y?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          brief?: string
+          created_at?: string
+          design?: Json
+          id?: string
+          name?: string
+          page_html?: string | null
+          page_x?: number
+          page_y?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      sections: {
+        Row: {
+          annotations: Json
+          config: Json
+          created_at: string
+          description: string
+          html: string | null
+          id: string
+          in_page: boolean
+          page_order: number
+          project_id: string
+          status: string
+          title: string
+          updated_at: string
+          user_id: string
+          x: number
+          y: number
+        }
+        Insert: {
+          annotations?: Json
+          config?: Json
+          created_at?: string
+          description?: string
+          html?: string | null
+          id?: string
+          in_page?: boolean
+          page_order?: number
+          project_id: string
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+          x?: number
+          y?: number
+        }
+        Update: {
+          annotations?: Json
+          config?: Json
+          created_at?: string
+          description?: string
+          html?: string | null
+          id?: string
+          in_page?: boolean
+          page_order?: number
+          project_id?: string
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+          x?: number
+          y?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
