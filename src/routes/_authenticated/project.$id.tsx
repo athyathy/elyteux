@@ -248,9 +248,9 @@ function Studio() {
   }
   async function buildPage() {
     const ready = pageSections.filter((s) => s.html);
-    if (!ready.length) return toast.error("Sélectionnez au moins une section générée.");
+    if (!ready.length) { toast.error("Sélectionnez au moins une section générée."); return; }
     const body = ready.map((s) => `<!-- ${s.title.replace(/--/g, "")} -->\n${s.html}`).join("\n\n");
-    const html = buildDocument(body, project?.design, { title: project?.name });
+    const html = buildDocument(body, project?.design, { title: project?.name ?? "Page" });
     await updateProject({ page_html: html });
     setPageOpen(true);
   }
